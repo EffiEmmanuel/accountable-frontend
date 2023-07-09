@@ -73,13 +73,13 @@ export default function Settings() {
 
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Import Data
             </p>
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Export Data
             </p>
@@ -104,31 +104,31 @@ export default function Settings() {
 
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Invoice Settings
             </p>
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Tax Settings
             </p>
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Manage Users
             </p>
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Currencies
             </p>
             <p
               onClick={() => {}}
-              className="font-semibold text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
+              className="font-semibold cursor-pointer text-left mt-4 border-b-[0.5px] pb-3 border-b-[#323232] my-4"
             >
               Billing / Subscriptions
             </p>
