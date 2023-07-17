@@ -70,10 +70,11 @@ export default function Transactions() {
             <p>Transaction</p>
 
             <button
-              className="bg-accountableBrightGreen text-white rounded-lg w-28 h-10 p-2 text-sm"
+              className="bg-accountableDarkGreen text-white rounded-lg w-28 h-10 p-2 text-sm"
               onClick={() => {}}
+              disabled
             >
-              Back
+              New
             </button>
           </div>
         </div>

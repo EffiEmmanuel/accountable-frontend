@@ -225,9 +225,27 @@ export default function DashboardHome() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
             <div className="">
               <p className="font-bold text-white">Profits & Losses</p>
-              <p className="font-bold text-gray-500 uppercase">
-                jan - dec 2023
-              </p>
+
+              <div className="flex items-center gap-x-4">
+                <input
+                  type="date"
+                  name="startDate"
+                  onChange={(e) => {
+                    //Do Something
+                  }}
+                  className="bg-transparent text-gray-500"
+                />
+                <p className="font-bold text-gray-500 uppercase">-</p>
+
+                <input
+                  type="date"
+                  name="endDate"
+                  onChange={(e) => {
+                    //Do Something
+                  }}
+                  className="bg-transparent text-gray-500"
+                />
+              </div>
             </div>
 
             <div className="flex flex-col gap-y-4 items-start lg:items-end my-4 lg:my-0">
@@ -434,7 +452,7 @@ export default function DashboardHome() {
             {/* DUE PAYMENTS */}
             <div className="border-[2px] rounded-xl p-10 border-[#323232] w-full lg:w-[35%]">
               <div className="flex flex-col items-start gap-y-2 lg:flex-row lg:items-center lg:justify-between mb-6">
-                <p className="font-bold text-white">Due Payment</p>
+                <p className="font-bold text-white">Payments Due</p>
               </div>
 
               <hr className="border-[#323232]" />
@@ -466,7 +484,7 @@ export default function DashboardHome() {
             {/* RECEIVABLE INVOICES */}
             <div className="border-[2px] rounded-xl p-10 border-[#323232] w-full lg:w-[65%]">
               <div className="flex flex-col items-start gap-y-2 lg:flex-row lg:items-center lg:justify-between mb-6">
-                <p className="font-bold text-white">Receivable Invoices</p>
+                <p className="font-bold text-white">Outstanding Invoices</p>
               </div>
 
               <hr className="border-[#323232]" />

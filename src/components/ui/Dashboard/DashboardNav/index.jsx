@@ -14,6 +14,9 @@ export default function DashboardNav({ isNavHidden, user, page }) {
 
   const [isSalesOpen, setIsSalesOpen] = useState(false);
   const [isUploadCenterOpen, setIsUploadCenterOpen] = useState(false);
+  const [isContactsOpen, setIsContactsOpen] = useState(false);
+  const [isReportsOpen, setIsReportsOpen] = useState(false);
+  const [isPurchasesOpen, setIsPurchasesOpen] = useState(false);
 
   return (
     <nav
@@ -56,12 +59,12 @@ export default function DashboardNav({ isNavHidden, user, page }) {
             </li>
             <li
               className={`my-8 ml-7 py-2 pl-3 rounded-l-lg relative ${
-                (page == "upload-customer" ||
-                  page == "upload-contact" ||
+                (page == "upload-bank-statement" ||
+                  page == "upload-bill" ||
                   page == "upload-invoice" ||
-                  page == "upload-supplier" ||
-                  page == "upload-expense" ||
-                  page == "upload-quotation") &&
+                  page == "upload-product" ||
+                  page == "upload-contact" ||
+                  page == "upload-account-chart") &&
                 "text-gray-400"
               }`}
             >
@@ -71,6 +74,9 @@ export default function DashboardNav({ isNavHidden, user, page }) {
                 onClick={() => {
                   setIsSalesOpen(false);
                   setIsUploadCenterOpen(!isUploadCenterOpen);
+                  setIsContactsOpen(false);
+                  setIsReportsOpen(false);
+                  setIsPurchasesOpen(false);
                 }}
               >
                 <FiSend size={16} className="" />
@@ -83,8 +89,34 @@ export default function DashboardNav({ isNavHidden, user, page }) {
                 }`}
               >
                 <Link
-                  to="/dashboard/upload-center/invoices"
+                  to="/dashboard/upload-center/bank-statement"
                   className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-bank-statement" &&
+                      "text-accountableBrightGreen"
+                    }`}
+                  >
+                    UPLOAD BANK STATEMENT
+                  </span>
+                </Link>
+                <Link
+                  to="/dashboard/upload-center/bills"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-bill" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    UPLOAD BILL
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/upload-center/invoices"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
                 >
                   <span
                     className={`text-xs ${
@@ -92,72 +124,6 @@ export default function DashboardNav({ isNavHidden, user, page }) {
                     }`}
                   >
                     INVOICES
-                  </span>
-                </Link>
-
-                <Link
-                  to="/dashboard/upload-center/customers"
-                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
-                >
-                  <span
-                    className={`text-xs ${
-                      page == "upload-customer" && "text-accountableBrightGreen"
-                    }`}
-                  >
-                    CUSTOMERS
-                  </span>
-                </Link>
-
-                <Link
-                  to="/dashboard/upload-center/contacts"
-                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
-                >
-                  <span
-                    className={`text-xs ${
-                      page == "upload-contact" && "text-accountableBrightGreen"
-                    }`}
-                  >
-                    CONTACTS
-                  </span>
-                </Link>
-
-                <Link
-                  to="/dashboard/upload-center/suppliers"
-                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
-                >
-                  <span
-                    className={`text-xs ${
-                      page == "upload-supplier" && "text-accountableBrightGreen"
-                    }`}
-                  >
-                    SUPPLIERS
-                  </span>
-                </Link>
-
-                <Link
-                  to="/dashboard/upload-center/quotations"
-                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
-                >
-                  <span
-                    className={`text-xs ${
-                      page == "upload-quotation" &&
-                      "text-accountableBrightGreen"
-                    }`}
-                  >
-                    QUOTATION
-                  </span>
-                </Link>
-
-                <Link
-                  to="/dashboard/upload-center/expenses"
-                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
-                >
-                  <span
-                    className={`text-xs ${
-                      page == "upload-expense" && "text-accountableBrightGreen"
-                    }`}
-                  >
-                    EXPENSES
                   </span>
                 </Link>
 
@@ -170,20 +136,34 @@ export default function DashboardNav({ isNavHidden, user, page }) {
                       page == "upload-product" && "text-accountableBrightGreen"
                     }`}
                   >
-                    PRODUCTS
+                    UPLOAD PRODUCT LISTS
                   </span>
                 </Link>
 
                 <Link
-                  to="/dashboard/upload-center/receipts"
+                  to="/dashboard/upload-center/contacts"
                   className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
                 >
                   <span
                     className={`text-xs ${
-                      page == "upload-receipt" && "text-accountableBrightGreen"
+                      page == "upload-contact" && "text-accountableBrightGreen"
                     }`}
                   >
-                    RECEIPTS
+                    UPLOAD CONTACT LISTS
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/upload-center/account-charts"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-account-chart" &&
+                      "text-accountableBrightGreen"
+                    }`}
+                  >
+                    UPLOAD CHART OF ACCOUNTS
                   </span>
                 </Link>
               </div>
@@ -199,6 +179,9 @@ export default function DashboardNav({ isNavHidden, user, page }) {
                 onClick={() => {
                   setIsUploadCenterOpen(false);
                   setIsSalesOpen(!isSalesOpen);
+                  setIsContactsOpen(false);
+                  setIsReportsOpen(false);
+                  setIsPurchasesOpen(false);
                 }}
               >
                 <BiBarChartSquare size={16} className="" />
@@ -238,41 +221,184 @@ export default function DashboardNav({ isNavHidden, user, page }) {
               </div>
             </li>
             <li
-              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg ${
+              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg relative ${
                 page == "purchases" && "text-gray-400"
               }`}
             >
-              <Link
-                to="/dashboard/purchases"
-                className="flex items-center gap-2"
+              <p
+                className="flex items-center cursor-pointer gap-2"
+                onClick={() => {
+                  setIsSalesOpen(false);
+                  setIsUploadCenterOpen(false);
+                  setIsContactsOpen(false);
+                  setIsReportsOpen(false);
+                  setIsPurchasesOpen(!isPurchasesOpen);
+                }}
               >
-                <TbNotes size={16} className="" />
-                <span className=" text-sm">Purchases</span>
-              </Link>
+                <BiBarChartSquare size={16} className="" />
+                <span className="text-sm">Purchases</span>
+              </p>
+
+              <div
+                className={`absolute top-0 bg-[#323232] z-10 h-auto w-auto right-5 p-4 rounded-xl flex-col justify-between ${
+                  isPurchasesOpen ? "flex" : "hidden"
+                }`}
+              >
+                <Link
+                  to="/dashboard/upload-center/expenses"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-expense" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    EXPENSES
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/purchase-orders"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "purchase-orders" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    PURCHASE ORDERS
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/upload-center/bills"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-bill" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    UPLOAD BILLS
+                  </span>
+                </Link>
+              </div>
             </li>
             <li
-              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg ${
+              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg relative ${
                 page == "reports" && "text-gray-400"
               }`}
             >
-              <Link to="/dashboard/reports" className="flex items-center gap-2">
-                <BiBarChartSquare size={16} className="" />
-                <span className=" text-sm">Reports</span>
-              </Link>
-            </li>
-            <li
-              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg ${
-                page == "customers" && "text-gray-400"
-              }`}
-            >
-              <Link
-                to="/dashboard/upload-center/customers"
-                className="flex items-center gap-2"
+              <p
+                className="flex items-center cursor-pointer gap-2"
+                onClick={() => {
+                  setIsSalesOpen(false);
+                  setIsUploadCenterOpen(false);
+                  setIsContactsOpen(false);
+                  setIsReportsOpen(!isReportsOpen);
+                }}
               >
                 <BiBarChartSquare size={16} className="" />
-                <span className=" text-sm">Customers</span>
-              </Link>
+                <span className="text-sm">Reports</span>
+              </p>
+
+              <div
+                className={`absolute top-0 bg-[#323232] z-10 h-auto w-auto right-5 p-4 rounded-xl flex-col justify-between ${
+                  isReportsOpen ? "flex" : "hidden"
+                }`}
+              >
+                <Link
+                  to="/dashboard/reports"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "standard-reports" &&
+                      "text-accountableBrightGreen"
+                    }`}
+                  >
+                    STANDARD REPORTS
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/reports"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "advanced-reports" &&
+                      "text-accountableBrightGreen"
+                    }`}
+                  >
+                    ADVANCED AI REPORTING
+                  </span>
+                </Link>
+              </div>
             </li>
+            <li
+              className={`my-8 ml-7 py-2 pl-3 rounded-l-lg relative ${
+                page == "contacts" && "text-gray-400"
+              }`}
+            >
+              <p
+                className="flex items-center cursor-pointer gap-2"
+                onClick={() => {
+                  setIsSalesOpen(false);
+                  setIsUploadCenterOpen(false);
+                  setIsContactsOpen(!isContactsOpen);
+                }}
+              >
+                <BiBarChartSquare size={16} className="" />
+                <span className="text-sm">Contacts</span>
+              </p>
+
+              <div
+                className={`absolute top-0 bg-[#323232] z-10 h-auto w-auto right-5 p-4 rounded-xl flex-col justify-between ${
+                  isContactsOpen ? "flex" : "hidden"
+                }`}
+              >
+                <Link
+                  to="/dashboard/upload-center/customers"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-customer" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    CUSTOMERS
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/upload-center/suppliers"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-supplier" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    SUPPLIERS
+                  </span>
+                </Link>
+
+                <Link
+                  to="/dashboard/upload-center/contacts"
+                  className={`flex items-center gap-2 hover:text-accountableBrightGreen text-gray-500 mt-5`}
+                >
+                  <span
+                    className={`text-xs ${
+                      page == "upload-contact" && "text-accountableBrightGreen"
+                    }`}
+                  >
+                    BULK UPLOAD CONTACTS
+                  </span>
+                </Link>
+              </div>
+            </li>
+
             <li
               className={`my-8 ml-7 py-2 pl-3 rounded-l-lg ${
                 page == "settings" && "text-gray-400"
